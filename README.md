@@ -2,16 +2,7 @@
 
 건축 사업 공고/고시/지침 문서를 업로드하고, 자동 분석/분류/검색/근거 열람을 수행하는 MVP API 템플릿입니다.
 
-## 폴더 구조
-
-- `app/main.py`: FastAPI 진입점
-- `app/api/routes.py`: 업로드/분석/검색/근거 API
-- `app/services/pipeline.py`: 인메모리 파이프라인 서비스 샘플
-- `app/schemas/document.py`: 요청/응답 스키마
-- `app/core/category_template.json`: 카테고리 템플릿
-- `scripts/sample_curl.sh`: 업로드 예시 호출
-
-## 실행
+## 1) 서버로 실행(개발용)
 
 ```bash
 python -m venv .venv
@@ -20,7 +11,29 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-## API
+- API 문서: `http://127.0.0.1:8000/docs`
+- 헬스체크: `http://127.0.0.1:8000/health`
+
+## 2) 실행형 프로그램(데스크톱 런처)
+
+서버 명령어를 모르는 사용자를 위해 `desktop_app.py`를 추가했습니다.
+런처에서 버튼으로 서버를 시작/중지하고 Swagger 페이지를 바로 열 수 있습니다.
+
+### 런처 직접 실행
+```bash
+python desktop_app.py
+```
+
+### EXE 빌드 (PyInstaller)
+```bash
+./build_desktop.sh
+```
+
+빌드 완료 후:
+- macOS/Linux: `dist/ArchitectureNoticeLauncher`
+- Windows(동일 명령 실행 시): `dist/ArchitectureNoticeLauncher.exe`
+
+## API 요약
 
 ### 1) 문서 업로드
 `POST /api/documents/upload`
