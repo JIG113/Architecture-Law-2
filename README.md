@@ -2,6 +2,22 @@
 
 건축 사업 공고/고시/지침 문서를 업로드하고, 자동 분석/분류/검색/근거 열람을 수행하는 MVP API 템플릿입니다.
 
+## 가장 쉬운 실행 방법 (권장)
+
+### Windows
+1. 프로젝트 폴더에서 `build_windows.bat` 더블클릭
+2. 빌드 완료 후 아래 EXE 더블클릭
+   - `dist\\ArchitectureNoticeLauncher\\ArchitectureNoticeLauncher.exe`
+3. 프로그램 창에서 `서버 시작` 클릭 → `Swagger 열기` 클릭
+
+### macOS / Linux
+```bash
+./run_desktop.sh
+```
+실행 후 프로그램 창에서 `서버 시작` 클릭 → `Swagger 열기` 클릭
+
+---
+
 ## 1) 서버로 실행(개발용)
 
 ```bash
@@ -25,13 +41,23 @@ python desktop_app.py
 ```
 
 ### EXE 빌드 (PyInstaller)
+
+#### 공통(Unix)
 ```bash
 ./build_desktop.sh
 ```
 
+#### Windows
+```bat
+build_windows.bat
+```
+
 빌드 완료 후:
 - macOS/Linux: `dist/ArchitectureNoticeLauncher`
-- Windows(동일 명령 실행 시): `dist/ArchitectureNoticeLauncher.exe`
+- Windows: `dist\\ArchitectureNoticeLauncher\\ArchitectureNoticeLauncher.exe`
+
+### 아이콘 적용(선택)
+- `assets/app.ico` 파일을 넣은 뒤 Windows 빌드를 다시 실행하면 아이콘이 적용됩니다.
 
 ## API 요약
 
